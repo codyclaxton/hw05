@@ -1,0 +1,12 @@
+h1{
+    text-align: center;
+}
+p{
+    color: red;
+}
+
+/* Rounded border*/
+hr.rounded{
+    border-top: 10px solid #bbb;/*This is thickness */
+    border-radius: 5px; /* How close elements are near it*/
+}
