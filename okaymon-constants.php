@@ -11,5 +11,5 @@ $okaymon_form_fields_maxLength = array('trainer' => 10
 $okaymon_energyStrength_types = array("weak","neutral","resistant");
 $okaymon_energy_types = array("clover","candle","spark","puddle","thinkin");
 $all_fields = array("trainer","species","energy","weight","conversion","flavor","clover","candle","puddle","spark","thinkin","agreement");
-
+$required_fields = array('trainer','species','agreement');
 ?>
