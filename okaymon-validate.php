@@ -13,6 +13,7 @@ require_once('okaymon-constants.php');
 function allErrorMessages($form_info){
     $new_array = buildErrorMessages($form_info);
 
+
     foreach($new_array as $message){
         if(strlen($message)>=1){
         echo $message . "<br>";
@@ -26,11 +27,17 @@ function allErrorMessages($form_info){
  */
 function buildErrorMessages($form_data){
     global $okaymon_form_fields_maxLength;
-    global $okaymon_energyStrength_types;
-    global $okaymon_energy_types;
     global $all_fields;
+    global $required_fields;
 
     $message_array = array();
+
+    foreach($required_fields as $field){
+        if(empty($form_data[$field])){
+            echo "<b>" . $field . " </b> is required" . "<br>";
+        }
+    }
+
     $trainer_message = trainer_validation($form_data['trainer'],5,$okaymon_form_fields_maxLength['trainer']);
     if(strlen($trainer_message) > 0){
         $message_array['trainer'] = $trainer_message;
@@ -57,6 +64,8 @@ function buildErrorMessages($form_data){
     if(strlen($energy_type_accurate) > 0){
         $message_array['energy'] = $energy_type_accurate;
     }
+
+    $agreement_checked = $form_data[$all_fields['agreement']];
     
     
 
